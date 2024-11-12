@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Section with Fixed Text and Scrollable Image</title>
+  <!-- Link ke Tailwind CSS dari CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* CSS untuk memastikan teks tetap terpusat */
+    .fixed-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      /* Agar teks tetap berada di atas gambar */
+      transition: opacity 0.6s ease; /* Menambahkan transisi pada opacity */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Awal Section Navbar -->
+  <nav class="bg-zinc-700 shadow-md fixed w-full z-20">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-5">
+        <div class="text-xl text-slate-200 italic">مابيت يعقوب</div>
+        <div class="block lg:hidden">
+          <button id="menu-toggle" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex space-x-4">
+          <a href="#home" class="text-slate-200 hover:text-current font-sans">Home</a>
+          <a href="#about-us" class="text-slate-200 hover:text-current">About Us</a>
+          <a href="#activity" class="text-slate-200 hover:text-current">Our Activity</a>
+          <a href="#documentation" class="text-slate-200 hover:text-current">Documentation</a>
+        </div>
+      </div>
+      <div id="menu" class="hidden lg:hidden">
+        <a href="#home" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">Home</a>
+        <a href="#about-us" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">About Us</a>
+        <a href="#activity" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">Our Activity</a>
+        <a href="#documentation" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">Documentation</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Akhir Section Navbar -->
+
+  <!-- Section Home dengan Gambar Digeser dan Teks Tetap -->
+  <section class="relative h-screen overflow-x-auto" id="home">
+    <!-- Gambar Latar yang Dapat Digeser untuk Mobile -->
+    <div class="flex w-[400%] h-full sm:w-full">
+      <div class="flex-shrink-0 w-full h-full bg-cover bg-center" style="background-image: url('Images/home.jpg');">
+      </div>
+    </div>
+
+    <!-- Teks yang Tetap di Tengah -->
+    <div class="fixed-text text-white">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">مرحباً بك في موقع مبيت يعقوب</h1>
+      <p class="text-lg sm:text-xl mb-6">Selamat datang di website kelas Ya'qub Tahfidz Asyuhada</p>
+    </div>
+  </section>
+  <!-- Akhir Section Home -->
+
+  <!-- Awal Section About Us -->
+  <section id="about-us" class="bg-gray-50 py-12 pt-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+        <div>
+          <img src="Images/bg.jpg" alt="Hiking" class="w-full h-full object-cover rounded-lg shadow-lg">
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">About Ya'qub class</h2>
+          <p class="mt-4 text-lg text-gray-600">
+            Selamat datang di Kelas Yakub, bagian dari Rumah Tahfidz Quran Masjid Asyuhada yang didedikasikan untuk
+            mencetak generasi penghafal Al-Quran yang berakhlak mulia dan berilmu. Kelas Yakub dirancang khusus untuk
+            remaja usia SMP hingga SMK, menyediakan lingkungan yang kondusif dan mendukung untuk menghafal Al-Quran
+            dengan baik.
+          </p>
+          <p class="mt-4 text-lg text-gray-600">
+            Rata-rata peserta didik di Kelas Yakub telah berhasil menghafal Juz 25 hingga 30, menunjukkan dedikasi dan
+            komitmen yang tinggi dalam proses menghafal. Kami bangga dengan pencapaian ini dan terus mendorong mereka
+            untuk mencapai hafalan yang lebih banyak lagi dengan bimbingan dan dukungan yang maksimal.
+          </p>
+          <p class="mt-4 text-lg text-gray-600">
+            Let's explore the world, one step at a time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Akhir Section About Us -->
+
+  <script>
+    //////////////////////////////////////////////////// Toggle menu di mobile//////////////////////////////////////////////////
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+
+    ///////////////////////////////// Menambahkan event listener untuk mengubah warna teks saat diklik/////////////////////////////////////
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Menghapus kelas cokelat dari semua item menu
+        menuItems.forEach(i => i.classList.remove('text-brown'));
+
+        // Menambahkan kelas cokelat ke item yang diklik
+        item.classList.add('text-brown');
+      });
+    });
+
+
+   //////////////////////////////////////////// // Mengubah opacity teks saat scroll/////////////////////////////////////
+    window.onscroll = function () {
+      var textDiv = document.querySelector('.fixed-text');
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        textDiv.style.opacity = '0'; // Menghilangkan teks
+      } else {
+        textDiv.style.opacity = '1'; // Menampilkan teks
+      }
+    };
+
+
+    //////////////////////////////////// Smooth scrolling ke section///////////////////////////////////////////////////
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    smoothScrollLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 80, // Adjusted to avoid overlap with navbar
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
