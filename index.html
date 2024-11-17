@@ -16,13 +16,17 @@
       transform: translate(-50%, -50%);
       z-index: 10;
       /* Agar teks tetap berada di atas gambar */
-      transition: opacity 0.6s ease; /* Menambahkan transisi pada opacity */
+      transition: opacity 0.6s ease;
+      /* Menambahkan transisi pada opacity */
     }
   </style>
 </head>
 
 <body class="bg-gray-100">
 
+  <!-- Web Ya'qub class tahfidz -->
+  <!-- Awal Section Navbar -->
+  <!-- Awal Section Navbar -->
   <!-- Awal Section Navbar -->
   <nav class="bg-zinc-700 shadow-md fixed w-full z-20">
     <div class="container mx-auto px-4">
@@ -35,10 +39,11 @@
             </svg>
           </button>
         </div>
-        <div class="hidden lg:flex space-x-4">
+        <div class="hidden lg:flex space-x-9">
           <a href="#home" class="text-slate-200 hover:text-current font-sans">Home</a>
           <a href="#about-us" class="text-slate-200 hover:text-current">About Us</a>
           <a href="#activity" class="text-slate-200 hover:text-current">Our Activity</a>
+          <a href="#activity" class="text-slate-200 hover:text-current">The Members</a>
           <a href="#documentation" class="text-slate-200 hover:text-current">Documentation</a>
         </div>
       </div>
@@ -46,11 +51,15 @@
         <a href="#home" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">Home</a>
         <a href="#about-us" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">About Us</a>
         <a href="#activity" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">Our Activity</a>
+        <a href="#activity" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">The Members</a>
         <a href="#documentation" class="block py-2 px-4 text-slate-200 hover:bg-zinc-500">Documentation</a>
       </div>
     </div>
   </nav>
   <!-- Akhir Section Navbar -->
+  <!-- Akhir Section Navbar -->
+  <!-- Akhir Section Navbar -->
+  <!-- Web ya'qub class tahfidz -->
 
   <!-- Section Home dengan Gambar Digeser dan Teks Tetap -->
   <section class="relative h-screen overflow-x-auto" id="home">
@@ -69,7 +78,7 @@
   <!-- Akhir Section Home -->
 
   <!-- Awal Section About Us -->
-  <section id="about-us" class="bg-gray-50 py-12 pt-24">
+  <section id="about-us" class="bg-gray-50 py-12 pt-18">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         <div>
@@ -97,6 +106,59 @@
   </section>
   <!-- Akhir Section About Us -->
 
+  <!-- Awaal section activitas -->
+  <!-- Awaal section activitas -->
+  <!-- Awaal section activitas -->
+  <section id="activity" class="bg-neutral-50 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-12">Our Activity</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
+        <!-- Activity 1 -->
+        <div
+          class="bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img class="w-full h-64 object-cover" src="Images/activitas1.jpg" alt="Swimming">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Hiking Bersama</h3>
+            <p class="text-gray-600">Mendaki gunung adalah salah satu kegiatan paling menyenangkan dan bermanfaat yang
+              kami lakukan. Ini menggabungkan olahraga fisik dengan keindahan alam, memberikan pelarian sempurna dari
+              kesibukan sehari-hari.</p>
+          </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div
+          class="bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img class="w-full h-64 object-cover" src="Images/aktivitas2.jpg" alt="Outdoor Sports">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mabit dan Murajaah</h3>
+            <p class="text-gray-600"> Kegiatan murajaah dan mabit memberikan banyak manfaat bagi peserta. Selain
+              memperkuat hafalan Al-Quran, kegiatan ini juga meningkatkan ketakwaan, kedisiplinan, dan rasa kebersamaan.
+            </p>
+          </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div
+          class="bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img class="w-full h-64 object-cover" src="Images/aktivitas3.jpg" alt="Team Building">
+          <div class="p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mentoring Bersama</h3>
+            <p class="text-gray-600">Kegiatan mentoring bersama adalah upaya berkelanjutan untuk mendukung dan
+              membimbing setiap anggota menuju pencapaian yang lebih baik dalam berbagai aspek kehidupan yang tumbuh dan
+              berkembang.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- Akhir section activitas -->
+  <!-- Akhir section activitas -->
+  <!-- Akhir section activitas -->
+
+ 
   <script>
     //////////////////////////////////////////////////// Toggle menu di mobile//////////////////////////////////////////////////
     const menuToggle = document.getElementById('menu-toggle');
@@ -121,7 +183,7 @@
     });
 
 
-   //////////////////////////////////////////// // Mengubah opacity teks saat scroll/////////////////////////////////////
+    //////////////////////////////////////////// // Mengubah opacity teks saat scroll/////////////////////////////////////
     window.onscroll = function () {
       var textDiv = document.querySelector('.fixed-text');
       if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -135,11 +197,11 @@
     //////////////////////////////////// Smooth scrolling ke section///////////////////////////////////////////////////
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
     smoothScrollLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
+      link.addEventListener('click', function (event) {
         event.preventDefault();
         const targetId = this.getAttribute('href').slice(1);
         const targetElement = document.getElementById(targetId);
-        
+
         window.scrollTo({
           top: targetElement.offsetTop - 80, // Adjusted to avoid overlap with navbar
           behavior: 'smooth'
